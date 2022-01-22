@@ -1,0 +1,37 @@
+<div class="container mt-5">
+
+  <!-- showmessage -->
+      <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+        <strong>{{ successmsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+
+
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = 'let us of readData'>
+            <th scope="row">{{ us.id }}</th>
+            <td>{{ us.fullname }}</td>
+            <td>{{us.email}}</td>
+            <td>{{ us.mobile }}</td>
+            <td> 
+              <button class="btn btn-danger btn-sm"  (click)="deleteID(us.id)">Delete</button> &nbsp;
+              <a  [routerLink]="['/create',us.id]" class="btn btn-warning btn-sm">Update</a>
+            </td>
+          </tr>
+          <tr>
+         
+        </tbody>
+      </table>
+</div>

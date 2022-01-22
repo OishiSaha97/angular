@@ -1,0 +1,47 @@
+<div class="conatiner">
+
+
+    <!--show errormsg-->
+
+    <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+        <strong>{{ errormsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+        <strong>{{ successmsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+
+
+        <form  [formGroup]="userForm"  >
+            <div class="col-lg-4 mt-2">
+                <label for="" class="mt-2">Full Name</label>
+                <input type="text" class="form-control" formControlName="fullname" placeholder="Enter Full Name">
+            </div>
+
+            <div class="col-lg-4 mt-2">
+                <label for="" class="mt-2">Email</label>
+                <input type="text" class="form-control" formControlName="email" placeholder="Enter Email">
+            </div>
+
+            <div class="col-lg-4 mt-2">
+                <label for="" class="mt-2">Phone Number</label>
+                <input type="text" class="form-control" formControlName="mobile" placeholder="Enter Number">
+            </div>
+
+            <div class="col-lg-4 mt-2" *ngIf="!getparamid"  (click)="userSubmit()" >
+                <button class="btn btn-success btn-sm">Create</button>
+            </div>
+
+            <div class="col-lg-4 mt-2" *ngIf="getparamid"  (click)="userUpdate()">
+                <button class="btn btn-dark btn-sm">Update</button>
+            </div>
+
+        </form>
+</div>
+
+
+<!--(ngSubmit)="userSubmit()"-->
